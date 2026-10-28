@@ -1,36 +1,48 @@
+
+const steps = [
+  {
+    number: "01",
+    title: "Choose a Language",
+    description: "Select the programming language you want to learn.",
+  },
+  {
+    number: "02",
+    title: "Pick a Topic",
+    description: "Choose the programming concept you want to study.",
+  },
+  {
+    number: "03",
+    title: "Start Learning",
+    description: "Learn with explanations, examples, and exercises.",
+  },
+];
+
 export default function HowItWorks() {
   return (
-    <section className="py-20 text-center">
-      <h2 className="text-3xl font-bold">
+    <section className="px-6 py-20 sm:px-10 sm:py-24">
+      <h2 className="mb-12 text-center text-3xl font-bold text-white sm:text-4xl">
         How It Works
       </h2>
 
-      <div className="mt-10 max-w-5xl mx-auto grid grid-cols-3 gap-6">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+        {steps.map((step) => (
+          <article
+            key={step.number}
+            className="group flex min-h-52 flex-col items-center justify-center rounded-xl border-2 border-red-600 bg-neutral-950 p-6 text-center transition-colors duration-200 hover:bg-red-600"
+          >
+            <span className="text-xl font-bold text-red-500 transition-colors duration-200 group-hover:text-white">
+              {step.number}
+            </span>
 
-        <div className="rounded-xl border p-6">
-          <h3 className="text-xl font-bold">01</h3>
-          <h4 className="mt-2 text-lg font-semibold">Choose a Language</h4>
-          <p className="mt-2">
-            Select the programming language you want to learn.
-          </p>
-        </div>
+            <h3 className="mt-4 text-xl font-bold text-red-500 transition-colors duration-200 group-hover:text-white">
+              {step.title}
+            </h3>
 
-        <div className="rounded-xl border p-6">
-          <h3 className="text-xl font-bold">02</h3>
-          <h4 className="mt-2 text-lg font-semibold">Pick a Topic</h4>
-          <p className="mt-2">
-            Choose the programming concept you want to study.
-          </p>
-        </div>
-
-        <div className="rounded-xl border p-6">
-          <h3 className="text-xl font-bold">03</h3>
-          <h4 className="mt-2 text-lg font-semibold">Start Learning</h4>
-          <p className="mt-2">
-            Learn with explanations, examples, and exercises.
-          </p>
-        </div>
-
+            <p className="mt-3 text-base leading-7 text-red-500 transition-colors duration-200 group-hover:text-white">
+              {step.description}
+            </p>
+          </article>
+        ))}
       </div>
     </section>
   );
